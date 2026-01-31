@@ -515,8 +515,12 @@ body {
     text-align: center;
 }
 
-.highlight-card:hover {
-    transform: translateY(-5px);
+.highlight-card.clickable-card {
+    cursor: pointer;
+}
+
+.highlight-card.clickable-card:hover {
+    transform: translateY(-5px) scale(1.02);
     box-shadow: var(--shadow-lg);
 }
 
@@ -893,6 +897,7 @@ body {
     box-shadow: var(--shadow-sm);
     text-align: center;
     transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .leadership-card:hover {
@@ -901,7 +906,7 @@ body {
 }
 
 .leadership-card.featured {
-    border: 2px solid var(--accent);
+    border-color: var(--accent);
     background: linear-gradient(135deg, #FEF3C7 0%, #FFFFFF 100%);
 }
 

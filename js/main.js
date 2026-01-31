@@ -346,4 +346,95 @@ document.addEventListener('DOMContentLoaded', function() {
             lightboxImage.src = '';
         }, 300);
     }
+
+    // ==========================================
+    // DYNAMIC FEATURED CLASS - LEADERSHIP CARDS
+    // ==========================================
+
+    const leadershipCards = document.querySelectorAll('.leadership-card');
+    const leadershipSection = document.getElementById('leadership');
+    let originalFeatured = null;
+
+    // Find the original featured card
+    leadershipCards.forEach(card => {
+        if (card.classList.contains('featured')) {
+            originalFeatured = card;
+        }
+    });
+
+    // Add hover effect to each leadership card
+    leadershipCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Remove featured class from all cards
+            leadershipCards.forEach(c => c.classList.remove('featured'));
+
+            // Add featured class to hovered card
+            card.classList.add('featured');
+        });
+
+        card.addEventListener('mouseleave', () => {
+            // Remove featured class when leaving the card
+            card.classList.remove('featured');
+
+            // Restore featured class to original card
+            if (originalFeatured) {
+                originalFeatured.classList.add('featured');
+            }
+        });
+    });
+
+    // ==========================================
+    // CLICKABLE CARDS - ABOUT SECTION
+    // ==========================================
+
+    const clickableCards = document.querySelectorAll('.clickable-card');
+
+    clickableCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const targetId = card.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // ==========================================
+    // DYNAMIC FEATURED CLASS - ACADEMIC CARDS
+    // ==========================================
+
+    const academicCards = document.querySelectorAll('.academic-card');
+    let originalAcademicFeatured = null;
+
+    // Find the original featured card
+    academicCards.forEach(card => {
+        if (card.classList.contains('featured')) {
+            originalAcademicFeatured = card;
+        }
+    });
+
+    // Add hover effect to each academic card
+    academicCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Remove featured class from all cards
+            academicCards.forEach(c => c.classList.remove('featured'));
+
+            // Add featured class to hovered card
+            card.classList.add('featured');
+        });
+
+        card.addEventListener('mouseleave', () => {
+            // Remove featured class when leaving the card
+            card.classList.remove('featured');
+
+            // Restore featured class to original card
+            if (originalAcademicFeatured) {
+                originalAcademicFeatured.classList.add('featured');
+            }
+        });
+    });
 });
