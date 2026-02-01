@@ -385,9 +385,10 @@ body {
     justify-content: center;
 }
 
-.profile-placeholder svg {
+.profile-placeholder img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .scroll-indicator {
